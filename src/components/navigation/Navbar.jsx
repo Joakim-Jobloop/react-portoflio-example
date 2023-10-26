@@ -1,6 +1,6 @@
-export const Navbar = ({name}) => {
+export const Navbar = () => {
 
     return (
-        <nav>navbar med navnet: {name}</nav>
+        <nav className="bg-gray-400 h-20 flex justify-center items-center">This is the navbar</nav>
     )
 }
