@@ -1,6 +1,6 @@
-export const Navbar = () => {
+export const Navbar = ({name}) => {
 
     return (
-        <nav>navbar</nav>
+        <nav>navbar med navnet: {name}</nav>
     )
 }
