@@ -2,8 +2,9 @@ import './App.css'
 import { Navbar } from './components/navigation/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { LandingPage } from './pages/LandingPage'
-import { Footer } from './components/Footer'
+
 import { AboutPage } from './pages/AboutPage'
+import { Footer } from './components/Footer'
 
 function App() {
 const name = 'John Doe'
@@ -20,7 +21,7 @@ const name = 'John Doe'
       <Route path='/else' element={<h1>Something else</h1>} />
     </Routes>
 
-    <Footer/>
+   <Footer/>
 
     </Router>
     </>
