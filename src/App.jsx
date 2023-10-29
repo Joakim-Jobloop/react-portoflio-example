@@ -7,23 +7,23 @@ import { AboutPage } from './pages/AboutPage'
 import { Footer } from './components/Footer'
 
 function App() {
-const name = 'John Doe'
+  const name = 'John Doe'
 
   return (
     <>
-    <Router>
+      <Router>
 
-    <Navbar/>
+        <Navbar />
 
-    <Routes>
-      <Route path='/' element={<LandingPage/>} />
-      <Route path='/about' element={<AboutPage/>} />
-      <Route path='/else' element={<h1>Something else</h1>} />
-    </Routes>
+        <Routes>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/else' element={<h1>Something else</h1>} />
+        </Routes>
 
-   <Footer/>
+        <Footer />
 
-    </Router>
+      </Router>
     </>
   )
 }

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+main {
+    .box {
+        width: 200px;
+        height: 200px;
+        border: 2px solid black;
+        margin: 5px;
+
+   
+    }
+    .box1 {
+        background-color: red;
+    }
+    .box2 {
+        background-color: red;
+    }
+    .box3 {
+        background-color: red;
+    }
+}
