@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 main .box {
   width: 200px;
   height: 200px;
@@ -11,8 +18,30 @@ main .box1 {
   background-color: red;
 }
 main .box2 {
-  background-color: red;
+  background-color: rgb(90, 79, 79);
 }
 main .box3 {
-  background-color: red;
+  background-color: rgb(67, 118, 190);
+}
+main button {
+  background-color: #3b82f6;
+  box-shadow: #64748b 5px 5px 5px;
+  padding: 8px 16px;
+}
+
+nav .logo {
+  border-radius: 10px;
+  box-shadow: 0 0 0 5px 5px black;
+  background-color: #1e293b;
+  padding: 5px;
+}
+nav .navitems {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+}
+nav .navitems > * {
+  background-color: #3b82f6;
+  box-shadow: #64748b 5px 5px 5px;
+  padding: 8px 16px;
 }/*# sourceMappingURL=App.css.map */
