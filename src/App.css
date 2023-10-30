@@ -17,11 +17,20 @@ main .box {
 main .box1 {
   background-color: red;
 }
+main .box1:hover ~ .box3 {
+  transform: scale(1.5);
+}
 main .box2 {
   background-color: rgb(90, 79, 79);
 }
+main .box2:hover ~ .box3 {
+  transform: scale(1.5);
+}
 main .box3 {
   background-color: rgb(67, 118, 190);
+}
+main .box3:hover {
+  transform: scale(1.5);
 }
 main button {
   background-color: #3b82f6;
@@ -41,7 +50,28 @@ nav .navitems {
   gap: 10px;
 }
 nav .navitems > * {
+  padding: 5px;
+  border-radius: 10px;
+}
+nav .navitems .active {
+  outline: #1e293b 2px solid;
+  border-radius: 50px;
+  transition: border-radius 0.5s, color 0.5s, background-color 0.5s;
+  color: white;
   background-color: #3b82f6;
-  box-shadow: #64748b 5px 5px 5px;
-  padding: 8px 16px;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    scale: 1.5;
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=App.css.map */

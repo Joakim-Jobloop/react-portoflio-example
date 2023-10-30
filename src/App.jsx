@@ -5,9 +5,13 @@ import { LandingPage } from './pages/LandingPage'
 
 import { AboutPage } from './pages/AboutPage'
 import { Footer } from './components/Footer'
+import { useState } from 'react'
+import { ScoreBoard } from './pages/Scoreboard'
 
 function App() {
   const name = 'John Doe'
+
+
 
   return (
     <>
@@ -18,7 +22,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/about' element={<AboutPage />} />
-          <Route path='/else' element={<h1>Something else</h1>} />
+          <Route path='/scoreboard' element={<ScoreBoard/>} />
         </Routes>
 
         <Footer />

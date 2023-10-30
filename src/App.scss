@@ -34,12 +34,21 @@ main {
   }
   .box1 {
     background-color: red;
+    &:hover ~ .box3 {
+      transform: scale(1.5)
+    }
   }
   .box2 {
     background-color: rgb(90, 79, 79);
+    &:hover ~ .box3 {
+      transform: scale(1.5)
+    }
   }
   .box3 {
     background-color: rgb(67, 118, 190);
+    &:hover {
+      transform: scale(1.5)
+    }
   }
   button {
     @include theme;
@@ -56,9 +65,36 @@ nav {
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
-   >* {
-    @include theme
-   }
+    >* {
+      padding: 5px;
+      border-radius: 10px;
+    }
+    
+    .active {
+      outline: #1e293b 2px solid;
+      border-radius: 50px;
+      transition: border-radius .5s, color .5s, background-color .5s;
+      color: white;
+      background-color: #3b82f6;
+     }
   }
-  
+
 }
+
+
+.spin {
+  animation: spin 1s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+     scale: 1.5;
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+
