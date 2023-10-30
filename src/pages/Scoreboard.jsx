@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export const ScoreBoard = () => {
   const [homeScore, setHomeScore] = useState(0);
@@ -9,20 +9,38 @@ export const ScoreBoard = () => {
   const [isEditingAway, setIsEditingAway] = useState(false);
   const [homeTeamName, setHomeTeamName] = useState('Home Team');
   const [awayTeamName, setAwayTeamName] = useState('Away Team');
+  const toggleGameButtonRef = useRef(null);
+
 
   useEffect(() => {
     let timer;
-
+  
+    // Add the event listener for the spacebar when the component mounts
+    const handleKeyPress = (event) => {
+      if (event.key === ' ') {
+        event.preventDefault();
+        toggleGame();
+        toggleGameButtonRef.current.focus();
+      }
+    };
+    document.addEventListener('keydown', handleKeyPress);
+  
     if (isGameRunning) {
       timer = setInterval(() => {
-        setGameTime((prevTime) => prevTime + 1);
-      }, 1000);
+        setGameTime((prevTime) => prevTime + 0.1);
+      }, 100);
     } else {
       clearInterval(timer);
     }
-
-    return () => clearInterval(timer);
+  
+    return () => {
+      clearInterval(timer);
+    
+      // Clean up the event listener when the component unmounts
+      document.removeEventListener('keydown', handleKeyPress);
+    };
   }, [isGameRunning]);
+  
 
   const toggleGame = () => {
     setIsGameRunning((prevValue) => !prevValue);
@@ -117,18 +135,19 @@ export const ScoreBoard = () => {
       </div>
 
       <div className="mt-4">
-        <p className="text-lg">Game Time: {gameTime} seconds</p>
+        <p className="text-lg">Game Time: {gameTime.toFixed(1)} seconds</p>
         <div className="mt-2 space-x-4">
-          <button
-            onClick={toggleGame}
-            className={`${
-              isGameRunning
-                ? 'bg-yellow-500 hover:bg-yellow-600'
-                : 'bg-green-500 hover:bg-green-600'
-            } text-white px-4 py-2 rounded`}
-          >
-            {isGameRunning ? 'Pause Game' : 'Start Game'}
-          </button>
+        <button
+  ref={toggleGameButtonRef}
+  onClick={toggleGame}
+  className={`${
+    isGameRunning
+      ? 'bg-yellow-500 hover:bg-yellow-600'
+      : 'bg-green-500 hover:bg-green-600'
+  } text-white px-4 py-2 rounded`}
+>
+  {isGameRunning ? 'Pause Game' : 'Start Game'}
+</button>
           <button
             onClick={resetGame}
             className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-600"
